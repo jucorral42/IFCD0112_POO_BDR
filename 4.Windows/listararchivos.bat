@@ -1,0 +1,2 @@
+dir
+pause 0

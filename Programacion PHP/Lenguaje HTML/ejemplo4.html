@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<meta  charset="utf-8"/>
+<head>
+<title>Página web de repaso html</title>
+    <link rel="shortcut icon" type="image/x-icon" href="">
+</head>
+<body style="background-color: aliceblue;"> <!--al poner el color del fondo de la página dentro del body afecta a toda la página-->
+    <h1>El tamaño de los titulares va disminuyendo según aumenta el número de etiquetas que van del 1 hasta el 6</h1>
+    <h2>El tamaño de los titulares va disminuyendo según aumenta el número de etiquetas que van del 1 hasta el 6</h2>
+    <h3>El tamaño de los titulares va disminuyendo según aumenta el número de etiquetas que van del 1 hasta el 6</h3>
+    <h4>El tamaño de los titulares va disminuyendo según aumenta el número de etiquetas que van del 1 hasta el 6</h4>
+    <h5>El tamaño de los titulares va disminuyendo según aumenta el número de etiquetas que van del 1 hasta el 6</h5>
+    <h6>El tamaño de los titulares va disminuyendo según aumenta el número de etiquetas que van del 1 hasta el 6</h6>
+        <p>Esto es un texto normal</p>
+    <h1 style="background-color: lightpink;">también podemos poner un color diferente en el fondo de los titulares</h1>
+        <p style="background-color: antiquewhite;">o en un párrafo en concreto que también queremos resaltar por algún motivo o que queremos que salga dentro de un fondo diferente al resto de la página, se puede poner la etiqueta style dentro del párrafo e indicar el nuevo color para ese párrafo</p>
+        <p><b>Esto es un texto en negrita</b>
+        <p><strong>Esto es un texto importante</strong>
+        <p><i>Esto es un texto en itálica</i></p>    
+        <p><em>Esto es un texto enfatizado</em></p>
+        <p><small>Este es un texto algo más pequeño</small>
+        <p>Esto es un texto <mark>marcado</mark> para resaltar del resto</b>
+        <p>Con esta etiqueta lo que hacemos es <del>tachar el texto</del> seleccionado</p>
+        <p>Esto es un texto <ins>subrayado</ins></b>
+        <p>Esto es un texto subcrito, es decir <sub>algo por debajo</sub> del resto</b>
+        <p>Esto es un texto superescrito, es decir <sup>algo por encima</sup> del resto</b> 
+        <p>Aquí ponemos un párrafo de la website de Servicio de informacion sobre Discapacidad: </p>
+        <blockquote cite="https://sid-inico.usal.es/centros_servicios/hospital-nacional-de-paraplejicos-de-toledo/">
+        El Hospital Nacional de Parapléjicos de Toledo es un hospital público monográfico en el tratamiento de la lesión medular.El centro, de referencia nacional, pertenece a la red del Servicio de Salud de Castilla-La Mancha ( SESCAM ).Se ubica geográficamente en la Finca de la Peraleda, en la zona Noroeste de la ciudad de Toledo. Se puede acceder al mismo por una carretera con puente que cruza el río Tajo y que se encuentra situada a la izquierda de la vía que une Toledo y Ávila.</blockquote></p>
+        <p>Si lo que queremos es introducir un texto entre comillas lo haremos con esta etiqueta y <q>nos aparecerá entrecomillado</q> tal y como le hemos indicado</p> 
+        <p>El texto referente a la obra escrita<abbr tittle="Los dos caballeros de Verona"> de William Shakespeare</abbr>No intentes persuadirme, amable Proteo.Los jóvenes caseros tienen mentes caseras.Si tu amor juvenil no te encadenase al dulce mirar de tu adorada, te rogaría que vinieses conmigo
+a ver las maravillas del gran mundo y no quedarte aquí, emperezado, consumiendo tu ociosa juventud. Pero, ya que amas, ten suerte en tu amor, como yo quisiera, si a amar fuese yo. (Da propiedad y referecia de quien es el texto)</p>
+        <p>Para proporcionar los datos de contacto del autor o propietario de un artículo lo podemos hacer con la etiqueta que viene a continuación:</p>
+        <address>Escrito por Ana Belén Fernández<br>
+        Curso 2ºDAW<br>
+        Ciclo Superior<br>
+        Instituto Arquitecto Ventura Rodriguez<br><br><br>
+        </address>
+
+    <img src="Imagenes/20220408_204302.jpg" width="220" height="277" alt="Santander">
+        <p><cite>Santander</cite> por Ana Belén Fernández. Fotografía tomada en abril de 2022.</p>
+
+        <p> Si el navegador soporta método bi-direccional (bdo) la siguiente linea estará escrita de derecha a izquierda</p>
+    <bdo dir = "rtl"> Comprobamos que lo comentado arriba se cumple</bdo>
+
+        <p>Los comentarios no aparecen en nuestra página web, solo pueden leerse accediendo al código html</p>
+
+    <!-- Esto es un comentario que solo puede leerse a traves del código, por lo que obviamente no aparecerá en la página web -->
+
+        <p>Entre la línea de arriba y esta hay un comentario escrito que no se lee desde nuestra web, hay que acceder al código html</p>
+        <p>En esta línea <!--como podemos ver en el codigo html-->tenemos un comentario que tampoco se percibe desde la web, habría que ver el código html</p>
+    <h3 style="color:Tomato;">Dando color a las letras en los distintos tamaños de los titulares, en este ejemplo el h3</h3>
+        <p style="color: Orange;">Pero es que también además podemos darle varios colores a los párrafos, pudiendo elegir entre una amplia gama de colores que podemos elegir a nuestro gusto o al gusto de quien te encarga la página web para que estos textos resalten o simplemente queden más chulos y originales en las páginas, etc...</p>
+    <h1 style = "border: 2px solid dodgerblue;"> También podemos encasillar los titulares en bordes de colores</h1>
+
+        <p> Y aquí finaliza el repaso de html2 como tarea entregable</p>
+
+    <h1>Parte práctica: Mis dos primeras páginas</h1>
+    <h2>Creacion lista anidada con Continentes, naciones y ciudades con enlaces</h2>
+
+    <ol> <!-- Lista numerada -->
+        <li> ASIA 
+            <ul> <!-- Lista anidada -->
+                <li> Japón
+                <!-- Lista anidada con enlaces a otras páginas --> 
+                    <ul> <a href = "https://www.gotokyo.org/es/index.html">Tokio</a></ul>
+                    <ul> <a href = "https://japon-secreto.com/kioto/">Kioto</a></ul>
+                    <ul> <a href = "https://directiatravel.com/viajes-japon/guia/que-ver-y-hacer/osaka">Osaka</a></ul>
+                </li>
+                <li> India 
+                    <ul> <a href = "https://laindiaincreible.com/bombay-que-ver-en-mumbai/">Mumbai o Bombai</a></ul>
+                    <ul> <a href = "https://laindiaincreible.com/visitar-jaipur/">Jaipur</a></ul>
+                    <ul> <a href = "https://laindiaincreible.com/visitar-nueva-delhi/">Nueva Delhi</a></ul>
+                </li>
+                <li> Indonesia 
+                    <ul> <a href = "https://es.wikipedia.org/wiki/Yakarta">Yakarta</a></ul>
+                    <ul> <a href = "https://es.wikipedia.org/wiki/Estrecho_de_Macasar">Macasar</a></ul>
+                    <ul> <a href = "https://mochilerosentailandia.com/2018/05/que-hacer-en-surabaya/">Surabaya</a></ul>
+                </li>
+                
+            </ul>
+
+        </li>
+        <li> AMÉRICA 
+            <ul>
+                <li>Estados Unidos
+                     <ul> <a href = "https://www.visittheusa.mx/destination/ciudad-de-nueva-york">Nueva York</a></ul>
+                    <ul> <a href = "https://es.wikipedia.org/wiki/Chicago">Chicago</a></ul>
+                    <ul> <a href = "https://es.hoteles.com/go/estados-unidos/cosas-que-hacer-en-san-francisco">San Francisco</a></ul>
+                </li>
+                <li>Canadá
+                    <ul> <a href = "https://www.youtube.com/watch?v=sG0r_YDSsVc">Toronto</a></ul>
+                    <ul> <a href = "https://www.youtube.com/watch?v=2yPyc-b7t2E">Vancouver</a></ul>
+                    <ul> <a href = "https://www.youtube.com/watch?v=nd_lTwD_Djs">Montreal</a></ul>
+                </li>
+                <li>México
+                    <ul> <a href = "https://www.facebook.com/GobiernoCDMX/">Ciudad de México</a></ul>
+                    <ul> <a href = "https://guadalajara.gob.mx/gdlWeb/#/principal">Guadalajara</a></ul>
+                    <ul> <a href = "https://www.hrs.com/es/hotel/heroica-puebla-de-zaragoza-20677/">Heroica Puebla de Zaragoza</a></ul>
+                </li>
+            </ul>
+
+
+        </li>
+        <li> ÁFRICA 
+            <ul>
+                <li>Sudáfrica
+                     <ul> <a href = "https://es.wikipedia.org/wiki/Ciudad_del_Cabo">Ciudad del Cabo</a></ul>
+                    <ul> <a href = "https://es.wikipedia.org/wiki/Gran_Johannesburgo">Johannesburgo</a></ul>
+                    <ul> <a href = "https://www.tripadvisor.es/Tourism-g312583-Pretoria_Gauteng-Vacations.html">Pretoria</a></ul>
+                </li>
+                <li>Nigeria
+                    <ul>Lagos</ul>
+                    <ul>Abuya</ul>
+                    <ul>Kano</ul>
+                </li>
+                <li>Kenia
+                    <ul>Nairobi</ul>
+                    <ul>Mombasa</ul>
+                    <ul>Eldoret</ul>
+                </li>
+            </ul>
+
+        </li>
+        <li> EUROPA </li>
+        <li> OCEANÍA </li>
+
+
+
+
+
+</body>
+</html>

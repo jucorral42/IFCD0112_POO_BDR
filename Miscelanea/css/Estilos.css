@@ -1,0 +1,71 @@
+body { 	background-color: #7FFFD4;
+		color: black;
+		font-size: "6";
+		font-family: "Tahoma";
+	   
+}	
+
+header { background-image: url (karate.gif)}	 
+
+img {align: right}
+ a { 
+ font-size: 20 px,
+ color:	#000000;
+ text-decoration: none;
+ margin:10px 10px 10px 10px;}
+ 
+ a:link {
+	 color:#033333;
+ }
+ 
+h1 { text-align: center;
+ color:#0a4375; 
+ font-family: "Dejavu Sans"; 
+ font-size: 60 px; 
+ font-weight: bold; 
+text-shadow:5px 5px 5px #6fb0e6;
+	
+}	
+
+h2 {text-align: left-side;
+ color:#008B8B; 
+ font-family: "Arial"; 
+ font-size: 70 px; 
+ font-weight: normal; 
+}
+
+h3 {text-align: center;
+	color:#00008B; 
+	font-family: "Verdana"; 
+	font-size: 50 px; 
+	font-weight: bold;
+	background-color:#F0F8FF; 
+	text-shadow:5px 5px 5px #FAEBD7;
+} 
+
+p {
+ color:#000000; font-family: "Verdana"; font-size: 20 px; font-weight: normal; line-height: 20 px}
+
+nav ul{
+	background-color:#00FFFF;
+	widt: 75%;
+	list-style-type: none;
+	text-align: center;
+}
+nav li{
+	display: inline;
+}
+nav a {
+	text-decoration: none;
+	font-weight: bold;
+	color: darkblue;
+	padding: 10px;
+	
+}
+nav li:hover {
+	background-color:#F5F5DC
+}
+
+.video {
+  margin-left: 160px;
+}
