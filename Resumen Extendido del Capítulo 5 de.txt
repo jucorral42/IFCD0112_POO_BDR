@@ -1,0 +1,134 @@
+Resumen Extendido del Capítulo 5 del libro Principles of Computer System Design
+
+Capítulo 5: Enforcing Modularity with Virtualization
+
+Introducción
+
+La modularidad es uno de los principios clave en el diseño de sistemas informáticos. Permite dividir sistemas complejos en partes independientes que pueden desarrollarse, mantenerse y analizarse de manera más eficiente. Sin embargo, para que la modularidad funcione en la práctica, es necesario imponer límites entre los módulos y controlar cómo se comunican entre sí. La virtualización es una de las técnicas más poderosas y versátiles para hacer cumplir estos límites. Este capítulo explora cómo la virtualización puede ser utilizada para reforzar la modularidad en el diseño de sistemas, y analiza tanto las bases conceptuales como las implementaciones prácticas de la virtualización.
+
+5.1 Organización Cliente/Servidor dentro de una Computadora mediante Virtualización
+
+5.1.1 Abstracciones para Virtualizar Computadoras
+
+La virtualización comienza con la idea de proporcionar a un programa una vista de una máquina diferente de la máquina física subyacente. Esta máquina "virtual" es una abstracción que puede presentar al programa un conjunto diferente de recursos, instrucciones, o incluso una arquitectura de hardware completamente distinta. Las principales razones para virtualizar incluyen aislamiento, control, compartición eficiente de recursos y la posibilidad de ejecutar múltiples sistemas operativos o aplicaciones en paralelo.
+
+Por ejemplo, una máquina virtual puede presentar a un programa un conjunto de registros y memoria que no existe físicamente. Este nivel de abstracción es útil tanto para pruebas, como para seguridad, y para replicar entornos antiguos en hardware moderno.
+
+5.1.2 Emulación y Máquinas Virtuales
+
+La emulación consiste en reproducir el comportamiento de un sistema diferente al hardware real. Un emulador puede ejecutar software diseñado para un tipo de CPU en otro tipo completamente distinto. Esto requiere traducir instrucciones y simular dispositivos de entrada/salida, temporizadores, y más. La emulación completa es costosa en términos de rendimiento, pero muy flexible.
+
+Las máquinas virtuales (VMs), por otro lado, simulan una computadora completa, típicamente sobre el mismo tipo de arquitectura. Utilizan un monitor de máquina virtual (VMM o hipervisor) que controla el acceso al hardware y permite ejecutar múltiples sistemas operativos como si cada uno tuviera su propia computadora.
+
+5.1.3 Hoja de Ruta: Virtualización Paso a Paso
+
+Virtualización de la CPU: Implica que cada máquina virtual tenga su propio conjunto de registros. El VMM intercambia el contexto de los registros cada vez que cambia de VM.
+
+Virtualización de la memoria: Mediante el uso de memoria virtual, se da la ilusión de que cada VM tiene su propio espacio de direcciones.
+
+Virtualización de dispositivos de E/S: Se crean dispositivos virtuales, y el VMM traduce las operaciones de E/S a las reales.
+
+Seguridad y aislamiento: La virtualización permite que cada máquina virtual opere sin interferir en las demás, incluso en caso de fallos.
+
+Este enfoque paso a paso muestra cómo se puede lograr un sistema modular fuerte utilizando técnicas de virtualización.
+
+5.2 Enlaces Virtuales utilizando SEND, RECEIVE y un Búfer Acotado
+
+5.2.1 Una Interfaz para SEND y RECEIVE con Búferes Acotados
+
+Para permitir la comunicación entre módulos o procesos sin compartir directamente datos, se utiliza la abstracción de canales de comunicación mediante operaciones SEND y RECEIVE. Esta técnica es fundamental en la arquitectura de cliente-servidor. Se introduce el concepto de un "búfer acotado", que limita el número de mensajes que pueden almacenarse sin ser leídos.
+
+Este enfoque ayuda a controlar el flujo de datos y prevenir que un proceso consuma todos los recursos. La interfaz mínima consiste en:
+
+SEND(mensaje): bloquea si el búfer está lleno.
+
+RECEIVE(): bloquea si el búfer está vacío.
+
+5.2.2 Coordinación de Secuencias con un Búfer Acotado
+
+La coordinación entre el emisor y el receptor es crucial. Los sistemas deben asegurar que:
+
+Los mensajes no se pierdan.
+
+Se mantenga el orden de los mensajes.
+
+Se bloqueen adecuadamente los procesos cuando el búfer esté lleno o vacío.
+
+Se pueden usar semáforos o monitores para implementar esta lógica. El búfer actúa como una cola circular con dos índices: uno para lectura y otro para escritura.
+
+5.2.3 Condiciones de Carrera
+
+Una condición de carrera ocurre cuando múltiples procesos acceden a una variable compartida sin la debida sincronización. En el contexto de un búfer compartido, esto puede llevar a sobrescrituras o lecturas incorrectas. Por ejemplo, dos procesos podrían incrementar el mismo contador sin saberlo, perdiendo una actualización.
+
+Solución: usar mecanismos de exclusión mutua (mutexes) para asegurar que sólo un proceso accede a una sección crítica a la vez.
+
+5.2.4 Bloqueos y Acciones de Antes-o-Después
+
+Para proteger secciones críticas, se utilizan bloqueos. La propiedad de antes-o-después garantiza que si dos acciones son concurrentes, el sistema debe comportarse como si una ocurrió completamente antes de la otra.
+
+Esto se puede lograr con semáforos, variables de condición y monitores. La implementación correcta asegura atomicidad de operaciones.
+
+5.2.5 Interbloqueo
+
+Un interbloqueo es una situación en la que dos procesos están esperando indefinidamente por recursos que cada uno posee. Ejemplo clásico: Proceso A tiene el recurso X y quiere el Y; Proceso B tiene Y y quiere X.
+
+Prevención:
+
+Imponer un orden en la adquisición de recursos.
+
+Hacer rollback de transacciones.
+
+Detectar ciclos en los grafos de espera.
+
+5.2.6 Implementación de ACQUIRE y RELEASE
+
+ACQUIRE(lock) bloquea el proceso si otro ya tiene el lock.
+RELEASE(lock) libera el lock, permitiendo que otro proceso lo adquiera.
+
+Estos mecanismos deben ser implementados utilizando primitivas atómicas como test-and-set o compare-and-swap para evitar condiciones de carrera.
+
+5.2.7 Implementación de una Acción de Antes-o-Después utilizando el Principio de Un Solo Escritor
+
+El principio de un solo escritor simplifica la sincronización: solo un proceso puede modificar un recurso compartido, mientras que múltiples pueden leerlo. Esto permite eliminar bloqueos para lectura, mejorando el rendimiento.
+
+Se puede usar este principio en estructuras como colas de mensajes o bases de datos en caché.
+
+5.2.8 Coordinación entre Islas Sincrónicas con Conexiones Asíncronas
+
+En sistemas distribuidos, diferentes partes del sistema pueden operar con relojes distintos. La coordinación entre estas "islas sincrónicas" requiere conexiones asíncronas que manejen diferencias de tiempo y posibles fallos en la red.
+
+Soluciones:
+
+Buffers intermedios.
+
+Reintentos y acknowledgments.
+
+Protocolos de temporización como NTP.
+
+5.3 Imposición de la Modularidad en la Memoria
+
+5.3.1 Memoria Virtual como Herramienta de Modularidad
+
+La memoria virtual proporciona a cada proceso su propio espacio de direcciones, impidiendo que acceda a la memoria de otro. Esto refuerza el aislamiento, un componente esencial de la modularidad.
+
+Cada proceso ve una memoria desde 0 hasta N, pero el sistema operativo traduce estas direcciones a ubicaciones reales mediante tablas de páginas.
+
+5.3.2 Protección de la Memoria
+
+La protección de memoria impide que un proceso lea o escriba fuera de sus límites. Se implementa mediante bits de acceso en las entradas de las tablas de páginas y mediante excepciones de hardware (como los page faults).
+
+Esto evita errores graves como corrupción de memoria y mejora la seguridad del sistema.
+
+5.3.3 Compartición Controlada de Memoria
+
+En ocasiones, es necesario que procesos compartan memoria (por ejemplo, para alto rendimiento). Esto debe hacerse con cuidado:
+
+Mapeo compartido con bits de lectura/escritura controlados.
+
+Segmentación explícita.
+
+Sincronización con semáforos o mutexes.
+
+Conclusión
+
+La virtualización impone la modularidad mediante aislamiento, control y abstracción. Permite que múltiples módulos compartan un sistema físico sin interferencias, y que cada uno opere con la ilusión de control exclusivo sobre sus recursos. Las técnicas de sincronización, protección de memoria y comunicación controlada son fundamentales para que esta ilusión funcione en la práctica. Así, el capítulo 5 no solo presenta los conceptos técnicos, sino que proporciona una base sólida para entender cómo se diseñan sistemas robustos, seguros y modulares en la práctica.
