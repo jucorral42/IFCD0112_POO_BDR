@@ -1,0 +1,11 @@
+1. Errores
+El principal error que nos da al intentar cargar la estructura de la bd de sakila atraves de codigo sql es que las tablas no estan ordenadas correctamente, algunas fk se crean antes de que la tabla a la que apunta este creada y tambien hay fk circulares.
+2.Explicacion
+Creo que la base de datos esta pensada para ser importada desde la pestaña importar desactivando temporalmente las fk atraves de una opcion que nos da la propia interfaz.
+3.Soluciones
+Hay tres posibles soluciones para cargar la base de datos.
+    -a) Cargarla desde la interfaz php my admin desactivando las fk mientras se hace la importacion con el boton correspondiente.
+    -b) Reorganizando el script de sql reorganizando la inserccion de tablas y/o colocando al final las fk.
+    -c) Desde la terminal ejecutando directamente el archivo .sql.
+
+Se adjunta el codigo .sql reoganizado de forma que es ejecutable como una consulta SQL.
