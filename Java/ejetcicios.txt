@@ -1,0 +1,7 @@
+1. Crear una clase con main que pida al usuaruio su nombre y su salario.
+ crearemos un metodo con tipo de vuelto que le incremente y muestre el salario un 20%
+ las salidas se aran con 2 decimales
+
+ 2. Sobre el anterior ahora hacer que el usuario escriba el porcentaje a incrementar.
+
+ 
