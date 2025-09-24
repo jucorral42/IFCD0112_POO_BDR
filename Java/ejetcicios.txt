@@ -4,4 +4,20 @@
 
  2. Sobre el anterior ahora hacer que el usuario escriba el porcentaje a incrementar.
 
- 
+ 3. Sobre el anterior vamos a crear un nuevo metodo que actue igual que con el salario
+  pero con la comision, es decir pedimos la comision y nuevo porcentaje de subida calcularemos
+   la nueva comision y el total del salario y de la comision. Siempre contolando los decimales a cero.
+
+4. Pedir al usuario 3 numeros. Despues comprobar mediante if cual4 es el mayor de todos. El usuario 
+puede escribir los numeros en orden indistinto.
+
+5.Pedir al usuario una nota numerica decimal entre 1 y 10. Generar un metodo que convierta la nota numerica cuantitativa en una nota cualitativa.
+ Es decir si es menor de 5 es insuficiente. entre 5 y 5,9 es suficiente, entre 6 y 7,9 es bien, entre 7 y 8,9 es notable, entre 9 y 9,9 es sobresaliente
+  y 10 es matricula de honor. Posteriormente habra que convertir la nota decimal al entero mas proximo y mostrar tanto la nota numerica
+  como cualitativa;
+
+6. Igual que el anterior pero ahora le pediremos al usuario cuantas notas quiere insertar y lo ajustaremos creando un bucle
+for para iterar tantas veces y calcular como notas a insertar.
+
+   
+
