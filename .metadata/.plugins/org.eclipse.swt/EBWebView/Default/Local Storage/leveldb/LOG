@@ -1,2 +1,3 @@
-2025/09/28-18:27:18.998 3050 Creating DB C:\Users\Juan y Eli\Desktop\IFCD0112_POO_BDR\.metadata\.plugins\org.eclipse.swt\EBWebView\Default\Local Storage\leveldb since it was missing.
-2025/09/28-18:27:19.075 3050 Reusing MANIFEST C:\Users\Juan y Eli\Desktop\IFCD0112_POO_BDR\.metadata\.plugins\org.eclipse.swt\EBWebView\Default\Local Storage\leveldb/MANIFEST-000001
+2025/10/03-10:30:20.523 28e0 Reusing MANIFEST C:\Users\Juan y Eli\Desktop\IFCD0112_POO_BDR\.metadata\.plugins\org.eclipse.swt\EBWebView\Default\Local Storage\leveldb/MANIFEST-000001
+2025/10/03-10:30:20.535 28e0 Recovering log #3
+2025/10/03-10:30:20.538 28e0 Reusing old log C:\Users\Juan y Eli\Desktop\IFCD0112_POO_BDR\.metadata\.plugins\org.eclipse.swt\EBWebView\Default\Local Storage\leveldb/000003.log 

@@ -6,6 +6,7 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.border.LineBorder;
 import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.Color;
@@ -18,8 +19,13 @@ public class Gui extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private JTextField textoEntrada;
-	private JTextField textoSalida;
+	private JTextField tfEntrada;
+	private JTextField tfSalida;
+	private JTextField tfEdad;
+	private JLabel titulo;
+	private JLabel lbNombre;
+	private JLabel lbEdad;
+	private JButton bcalcualr;
 
 	/**
 	 * Launch the application.
@@ -48,44 +54,58 @@ public class Gui extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
-		JLabel titulo = new JLabel("Mi primer APP");
+		titulo = new JLabel("Mi primer APP");
 		titulo.setForeground(new Color(128, 0, 255));
 		titulo.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		titulo.setBounds(187, 10, 186, 46);
 		contentPane.add(titulo);
 
-		textoEntrada = new JTextField();
-		textoEntrada.setBounds(287, 85, 168, 46);
-		contentPane.add(textoEntrada);
-		textoEntrada.setColumns(10);
+		tfEntrada = new JTextField();
+		tfEntrada.setBounds(291, 57, 168, 46);
+		contentPane.add(tfEntrada);
+		tfEntrada.setColumns(10);
 
-		JLabel texto = new JLabel("inserte su nombre");
-		texto.setForeground(new Color(128, 0, 255));
-		texto.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		texto.setBounds(24, 85, 186, 46);
-		contentPane.add(texto);
+		lbNombre = new JLabel("inserte su nombre");
+		lbNombre.setForeground(new Color(128, 0, 255));
+		lbNombre.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lbNombre.setBounds(23, 53, 186, 46);
+		contentPane.add(lbNombre);
 
-		JButton boton = new JButton("Calcular");
-		boton.addActionListener(new ActionListener() {
+		bcalcualr = new JButton("Calcular");
+		bcalcualr.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String nombre = textoEntrada.getText();
-				if (textoEntrada.getText().equalsIgnoreCase("")) {
-					textoSalida.setText("Debe escribir su nombre");
+				String nombre = tfEntrada.getText();
+				String edad = tfEdad.getText();
+				if (tfEntrada.getText().equalsIgnoreCase("")|| tfEdad.getText().equals("")) {
+					tfSalida.setText("Debe escribir su nombre y o su edad");
+					tfSalida.setBorder(new LineBorder(new Color (255,0,0)));
 				} else {
 
-					textoSalida.setText(nombre);
-					textoEntrada.setText(null);
+					tfSalida.setText(nombre+ "   " + edad);
+					tfEntrada.setText(null);
+					tfEdad.setText(null);
 				}
 
 			}
 		});
-		boton.setBounds(187, 161, 159, 46);
-		contentPane.add(boton);
+		bcalcualr.setBounds(187, 165, 159, 46);
+		contentPane.add(bcalcualr);
 
-		textoSalida = new JTextField();
-		textoSalida.setBounds(176, 230, 197, 39);
-		contentPane.add(textoSalida);
-		textoSalida.setColumns(10);
+		tfSalida = new JTextField();
+		tfSalida.setBounds(176, 230, 197, 39);
+		contentPane.add(tfSalida);
+		tfSalida.setColumns(10);
+
+		lbEdad = new JLabel("inserte su edad");
+		lbEdad.setForeground(new Color(128, 0, 255));
+		lbEdad.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lbEdad.setBounds(23, 109, 186, 46);
+		contentPane.add(lbEdad);
+
+		tfEdad = new JTextField();
+		tfEdad.setColumns(10);
+		tfEdad.setBounds(291, 113, 168, 46);
+		contentPane.add(tfEdad);
 
 	}
 }

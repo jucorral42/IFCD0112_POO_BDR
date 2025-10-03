@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Calculograsa {
 
 	static int calculoHombre(int cintura, int altura, int edad) {
-		double calculo = 106.5 * (cintura / altura) - 28.36;
+		double calculo = 106.5 * ((double)cintura / altura) - 28.36;
 		if (edad >= 20 && edad <= 39) {
 			if (calculo >= 8 && calculo <= 19) {
 				return 1;
@@ -27,7 +27,7 @@ public class Calculograsa {
 	}
 
 	static int calculoMujer(int cintura, int altura, int edad) {
-		double calculo = 89.73 * (cintura / altura) - 15.14;
+		double calculo = 89.73 * ((double)cintura / altura) - 15.14;
 		if (edad >= 20 && edad <= 39) {
 			if (calculo >= 21 && calculo <= 32) {
 				return 1;
@@ -63,7 +63,7 @@ public class Calculograsa {
 		sexo = scan.next();
 		System.out.println("Introduzca su edad");
 		edad = scan.nextInt();
-
+		
 		switch (sexo) {
 		case "V":
 				if(calculoHombre(cintura,altura,edad) == 1) {
